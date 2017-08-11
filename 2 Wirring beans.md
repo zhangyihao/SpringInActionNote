@@ -53,3 +53,20 @@ public calss TestConfig {
 ## 配置自动装配 ##
 使用`@Autowired`注解，表示一个bean的属性需要自动装配。
 `@Autowired`注解可以用在类的构造方法、setter方法或者其它任意的方法上。Spring会为方法的参数注入相对应的bean，如果有且只有一个bean适配到，那么这个bean会被注入进去，否则抛出异常。为了避免异常，可以设置Autowired注解的required属性为false。
+
+# Java代码配置bean #
+这种方式是在一个JavaConfig类中声明一个创建bean实例的方法，并用`@Bean`注解声明，如下所示：
+```java
+@Configuration
+public class TestConfig {
+	@Bean
+	public TestBean testBean() {
+		reutrn new TestBean();
+	}
+}
+```
+
+# XML配置bean #
+```
+<bean class="soundsystem.SgtPeppers" />
+```
